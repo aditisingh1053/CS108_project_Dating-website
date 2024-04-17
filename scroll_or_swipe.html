@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Student Profiles</title>
+<link rel="icon" href="logo.png" type="image/x-icon"></link>
+<style>
+    /* CSS Styles */
+    .student-profile {
+        background-color: rgb(200,226,255 ) ;
+        box-shadow: 5px 10px 10px rgba(180, 220, 255, 0.7);
+        /* border: 1px solid #ccc; */
+        border: 2px solid rgb(180,220,255 ) ; 
+        /* animation: slideUp 1s ease forwards; */
+        border-radius: 10px;
+        /* text-align: center; */
+        margin-bottom: 30px;
+        padding: 10px;
+        display: flex;
+        width: 50%;
+        margin: 0 auto;
+        animation: slideUp 2s ease forwards;
+        
+        margin-bottom: 20px; /* Added margin between profiles */
+    }
+    @keyframes slideUp {
+    0% {
+        transform: translate(0%, 100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0%, 0);
+        opacity: 1;
+    }
+}
+    .profile-image {
+        max-width: 250px;
+        max-height: 250px;
+        margin-right: 20px;
+    }
+    .profile-details {
+        flex: 1;
+    }
+    .profile-details h2 {
+        margin-top: 0;
+    }
+    .signin-btn1 {
+    background-color:  rgb(200,226,255 ) ;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    color: black;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease; /* Transition Effect */
+  }
+  
+  .signin-btn1:hover {
+    background-color:  rgb(170,190,225 );
+  }
+  .signin-btn1-container {
+    display: flex;
+    justify-content: center;
+}
+    body{
+        background-image: url("stars.webp");
+    animation: animatedBackground 10s linear infinite;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* text-align: center; */
+    }
+    .buttonss{
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+<div id="profiles-container"></div>
+<div class="buttonss">
+    <a href="dating.html" class="signin-btn1">Back to dating form </a>
+    <a href="login.html" class="signin-btn1">Logout</a>
+</div>
+<script>
+    // Fetch JSON data
+    fetch('students.json')
+    .then(response => response.json())
+    .then(data => {
+        // Get container element
+        const container = document.getElementById('profiles-container');
+
+        // Loop through each student
+        data.forEach(student => {
+            // Create profile element
+            const profile = document.createElement('div');
+            profile.classList.add('student-profile');
+
+            // Create profile content
+            const content = `
+                <img src="${student.Photo}" alt="${student.Name}" class="profile-image">
+                <div class="profile-details">
+                    <h2>${student.Name}</h2>
+                    <p><strong>Roll Number:</strong> ${student['IITB Roll Number']}</p>
+                    <p><strong>Year of Study:</strong> ${student['Year of Study']}</p>
+                    <p><strong>Age:</strong> ${student.Age}</p>
+                    <p><strong>Gender:</strong> ${student.Gender}</p>
+                    <p><strong>Interests:</strong> ${student.Interests.join(', ')}</p>
+                    <p><strong>Hobbies:</strong> ${student.Hobbies.join(', ')}</p>
+                    <p><strong>Email:</strong> <a href="mailto:${student.Email}">${student.Email}</a></p>
+                </div>
+            `;
+
+            // Set profile content
+            profile.innerHTML = content;
+
+            // Append profile to container
+            container.appendChild(profile);
+        });
+    })
+    .catch(error => console.error('Error fetching JSON:', error));
+</script>
+</body>
+</html>

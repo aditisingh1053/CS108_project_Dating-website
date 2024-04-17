@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Match mingle </title>
+        <!-- <link rel="stylesheet" href="styling.css"> -->
+        <link rel="icon" href="logo.png" type="image/x-icon"></link>
+        <style> 
+          body{
+            background-color: rgb(165,206,255 );
+            text-align: center;
+            color: rgb(225,235,255 );
+            min-height: 110vh;
+            background-image: url('image1.jpeg');
+            animation: animatedBackground 10s linear infinite;
+            background-size: 100% 100%;
+            
+            /* Prevent the image from repeating */
+            background-repeat: no-repeat;
+            font-size: large;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+          }
+          .login-box {
+          width: 450px;
+          margin: 50px auto;
+          color: rgb(55, 44, 23);
+          background-color: rgb(165,205,255 ) ;
+          box-shadow: 5px 10px 10px rgba(180, 220, 255, 0.7);
+          padding: 20px;
+          border: 2px solid rgb(180,220,255 ) ;         
+          border-radius: 10px;
+          /* text-align: center; Center align content */
+        }
+        .allcontent{
+          animation: slideUp 2s ease forwards;
+        }
+      
+        @keyframes slideUp {
+    0% {
+        transform: translate(0%, 100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0%, 0);
+        opacity: 1;
+    }
+}
+        .signin-btn1 {
+            background-color: rgb(30, 50, 125); 
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            color: white;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+            transition: background-color 0.3s ease; /* Transition Effect */
+          }
+          
+          .signin-btn1:hover {
+            background-color:  rgb(50,70,130 );
+          }
+          .signin-btn1-container {
+            display: flex;
+            justify-content: center;
+        }
+        .login-box h2 {
+            text-align: center;
+            color: black; /* Revert h2 color to yellow */
+          }
+          button {
+          background-color: rgb(25, 35, 85);
+          color: white;
+          padding: 10px 20px;
+          margin: 10px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+          background-color: rgb(23, 53, 153);
+        }
+
+        /* Style for input fields */
+        input[type="text"] {
+          width: 70%;
+          padding: 10px;
+          margin: 10px 0;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          box-sizing: border-box;
+        }
+
+        /* Style for labels */
+        label {
+          display: block;
+          margin-bottom: 5px;
+        }
+
+        /* Style for error messages */
+        .error-message {
+          color: red;
+          margin-top: 5px;
+        }
+
+        /* Add margin to the buttons for spacing */
+        button {
+          margin-top: 10px;
+        }
+
+        /* Animation for the login box */
+        @keyframes animatedBackground {
+          0% { background-position: 0 0; }
+          100% { background-position: 100% 100%; }
+        }
+        
+        </style>
+    </head>
+    <body>
+      <div class="allcontent">
+        <h1>FORGOT Password!!!</h1>
+        <h1>No worries !!<br> We have ways to recover it </h1>
+        <div class="login-box">
+            <h2>Forgot password</h2>
+            <form id="forgotForm">              
+              <div id="usernameStep">
+                <div class="input-group1">
+                  <label for="username" style="font-size: large;"> Username:</label>
+                  <input type="text" id="username" name="username" required>
+                </div>
+                <button type="button" onclick="fetchCustomQuestion()">Next</button>
+              </div>
+              <div id="questionStep" style="display: none;">
+                <div class="input-group1">
+                  <label for="question" style="font-size: large;">Secret Question:</label>
+                  <span id="customQuestion" style="font-size: large;"></span>
+                </div>
+                <div class="input-group1">
+                  <label for="answer" style="font-size: large;">Answer:</label>
+                  <input type="text" id="answer" name="answer" required>
+                </div>
+                <button type="button" onclick="submitAnswer()">Submit</button>
+              </div>
+              </form>
+          </div>
+          <a href="login.html" class="signin-btn1">Back to Login</a>
+          <script>
+            var userData;
+            function fetchCustomQuestion() {
+              var username = document.getElementById("username").value;
+
+        
+              fetch('login.json')
+                .then(response => response.json())
+                .then(data => {
+                  userData = data.find(entry => entry.username === username);
+                  if (userData && userData.secret_question) {
+                    document.getElementById("questionStep").style.display = "block";
+                    document.getElementById("customQuestion").textContent = userData.secret_question;
+                  } else {
+                    alert("User not found or custom question not available.");
+                  }
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        
+            function submitAnswer() {
+              var answer = document.getElementById("answer").value;
+              console.log(answer);
+        
+              if (userData && userData.secret_answer === answer) {
+                alert("Answer is correct! Your password is: " + userData.password);
+              } else {
+                alert("Incorrect answer or user not found.");
+              }
+            }
+          </script>
+          </div>
+    </body>
+</html>
