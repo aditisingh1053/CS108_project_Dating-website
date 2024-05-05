@@ -1,4 +1,3 @@
-const e = require("express");
 
 function validateLogin() {
     // Get the name from the input field
@@ -83,6 +82,9 @@ function getRollNumberOfHighestScore() {
     return getOppositeGenderNames()
         .then(function(oppositeGenderRollNumbers) {
             // Call the function to load JSON data
+            // const interestsLength = jsonData.interests.length;
+
+//   console.log('Number of interests:', interestsLength);
             return loadJSON()
                 .then(function(jsonData) {
                     // Get the selected interests and hobbies from the HTML form
@@ -105,23 +107,24 @@ function getRollNumberOfHighestScore() {
 
                         // Calculate the score for each student based on interests and hobbies
                         studentsWithSameRollNumber.forEach(function(student) {
-                            let score = 0;
+                            let nscore = 0;
                             
                             // Increase the score for matching interests
                             student.Interests.forEach(function(interest) {
                                 if (selectedInterests.includes(interest)) {
-                                    score += 1;
+                                    nscore += 1;
                                 }
                             });
-
-                            // Increase the score for matching hobbies
                             student.Hobbies.forEach(function(hobby) {
                                 if (selectedHobbies.includes(hobby)) {
-                                    score += 1;
+                                    nscore += 1;
                                 }
                             });
                             // Log the score for each student
+                            let score=nscore/(selectedInterests.length+selectedHobbies.length+student.Interests.length+student.Hobbies.length-nscore);
+                                score=score-(Math.abs(student.Age - age)/10);
                             console.log(`Score for student ${student.Name} with roll number ${rollNumber}: ${score}`);
+
 
                             // Check if this student has the highest score so far
                             if (score > highestScore) {
@@ -133,6 +136,7 @@ function getRollNumberOfHighestScore() {
                             else if(score == highestScore){
                                 if (Math.abs(student.Age - age) < ageDifference){
                                     highestScore = score;
+                                    yearofmatch = student.Year;
                                     rollNumberOfHighestScore = student['IITB Roll Number'];
                                     ageDifference = Math.abs(student.Age - age);
                                 }
@@ -153,7 +157,7 @@ function getRollNumberOfHighestScore() {
                     localStorage.setItem("score", highestScore);
 
                     // Return 'nomatch' if the highest score is zero
-                    if (highestScore === 0) {
+                    if (highestScore < 0.2) {
                         return 'nomatch';
                     }
 

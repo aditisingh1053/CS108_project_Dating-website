@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Profile</title>
+    <link rel="stylesheet" href="newstylesheet.css">
+    <link rel="icon" href="allphotos/logo.png" type="image/x-icon"></link>
+</head>
+<body>
+    <div class="allcontent">
+        <h2 id="displayname" style="text-align: center;"></h2>
+        <h2 id ="matched" style="text-align: center;"></h2>
+    <div class="login-box">       
+        <div id="matchData"></div>
+        
+    </div>
+    <div class="buttonss">
+    <a href="user.html" class="signin-btn1" style="text-align: center;">Back to Home Screen</a>
+    </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    // Retrieve username from localStorage
+        var rollno = localStorage.getItem("myprofile");
+        console.log(rollno)
+        if (rollno === null) {
+        // console.log("hi")
+                document.getElementById("matched").innerText = "Sorry we couldn't update your Profile";
+            }
+
+    else{
+        document.getElementById("matched").innerText = "Greetings ! We have successfully updated your profile. Here are the details.......";
+        fetch('students.json')
+    .then(response => response.json())
+    .then(data => {
+        // Get container element
+        const container = document.getElementById('matchData');
+
+        // Loop through each student
+        data.forEach(student => {
+            // Create profile element
+            const profile = document.createElement('div');
+            profile.classList.add('student-profile');
+            conteent="I am your perfect match according to Matchify.I found your profile interesting and want to meet you. Thanks"
+            if (student['IITB Roll Number']==rollno){
+
+            // Create profile content
+            const content = `
+                <img src="${student.Photo}" alt="${student.Name}" class="profile-image">
+                <div class="profile-details">
+                    <h2>${student.Name}</h2>
+                    <p><strong>Roll Number:</strong> ${student['IITB Roll Number']}</p>
+                    <p><strong>Year of Study:</strong> ${student['Year of Study']}</p>
+                    <p><strong>Age:</strong> ${student.Age}</p>
+                    <p><strong>Gender:</strong> ${student.Gender}</p>
+                    <p><strong>Interests:</strong> ${Array.isArray(student.Interests) ? (student.Interests.length > 0 ? student.Interests.join(', ') : student.Interests) : student.Interests}</p>
+                    <p><strong>Hobbies:</strong> ${Array.isArray(student.Hobbies) ? (student.Hobbies.length > 0 ? student.Hobbies.join(', ') : student.Hobbies) : student.Hobbies}</p>
+                    <p><strong>Email:</strong> <a href="mailto:${student.Email}" class="mail-people">${student.Email}</a></p>
+                    <p><strong>Comments:</strong> <span >${student.Comments || "None"}</span></p>
+                    <p><strong>Likes recieved:</strong> <span id="like-count-${student['IITB Roll Number']}">${student.likeCount || 0}</span></p>
+                </div>
+            `;
+                function newfunc(){
+                    window.open('mailto:test@example.com?subject=subject&body=body');
+                }
+
+            // Set profile content
+            profile.innerHTML = content;
+
+            // Append profile to container
+            container.appendChild(profile);
+
+    }});
+    })
+    .catch(error => console.error('Error fetching JSON:', error));
+    }
+        });
+    </script>
+    </div>
+
+</body>

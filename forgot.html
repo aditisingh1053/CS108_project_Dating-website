@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Match mingle </title>
-        <!-- <link rel="stylesheet" href="styling.css"> -->
-        <link rel="icon" href="logo.png" type="image/x-icon"></link>
+        <title>Forgot Password </title>
+        <link rel="icon" href="allphotos/logo.png" type="image/x-icon"></link>
         <style> 
-          body{
-            background-color: rgb(165,206,255 );
-            text-align: center;
-            color: rgb(225,235,255 );
-            min-height: 110vh;
-            background-image: url('image1.jpeg');
-            animation: animatedBackground 10s linear infinite;
-            background-size: 100% 100%;
-            
-            /* Prevent the image from repeating */
-            background-repeat: no-repeat;
-            font-size: large;
-            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-          }
-          .login-box {
-          width: 450px;
-          margin: 50px auto;
-          color: rgb(55, 44, 23);
-          background-color: rgb(165,205,255 ) ;
-          box-shadow: 5px 10px 10px rgba(180, 220, 255, 0.7);
-          padding: 20px;
-          border: 2px solid rgb(180,220,255 ) ;         
-          border-radius: 10px;
-          /* text-align: center; Center align content */
-        }
+       body{
+  color: rgb(235,235,255 );
+  /* min-height: 110vh; */
+  background-image: url('allphotos/w6.jpg');
+  animation: slideshow 20s infinite;
+  background-size: 100%;
+  
+  /* Prevent the image from repeating */
+  background-repeat: no-repeat;
+  font-size: large;
+  font-family:cursive;
+  }
+  @keyframes slideshow{
+      33% { background-image: url('allphotos/w1.avif');}
+      66% {background-image: url('allphotos/w7.webp');}
+  }
+  .login-box {
+    width: 350px;
+    margin: 50px auto;
+    color: rgb(255,255,255);
+    background-color: rgb(30,30,30) ;
+    /* box-shadow: 5px 10px 10px rgba(180, 220, 255, 0.7); */
+    padding: 20px;
+    /* border: 2px solid rgb(180,220,255 ) ;  */
+    /* animation: slideUp 1s ease forwards; */
+    border-radius: 10px;
+    text-align: center;
+    margin-left: 7%;
+    opacity: 0.85;
+    /* text-align: left; */
+  }
         .allcontent{
           animation: slideUp 2s ease forwards;
         }
@@ -45,46 +49,47 @@
         opacity: 1;
     }
 }
-        .signin-btn1 {
-            background-color: rgb(30, 50, 125); 
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            color: white;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 5px;
-            border: none;
-            transition: background-color 0.3s ease; /* Transition Effect */
-          }
-          
-          .signin-btn1:hover {
-            background-color:  rgb(50,70,130 );
-          }
-          .signin-btn1-container {
-            display: flex;
-            justify-content: center;
-        }
+.signin-btn1 {
+    background-color:  black ;
+    color: white;
+    opacity: 0.9;
+    padding: 10px 20px;
+    opacity: 0.5;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease; /* Transition Effect */
+  }
+  
+  .signin-btn1:hover {
+    background-color:  rgb(50,50,50);
+  }
+  button {
+    background-color: rgb(83, 43, 20);
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color:  rgb(123,73,53 );
+  }
         .login-box h2 {
             text-align: center;
-            color: black; /* Revert h2 color to yellow */
+            color: white; /* Revert h2 color to yellow */
           }
-          button {
-          background-color: rgb(25, 35, 85);
-          color: white;
-          padding: 10px 20px;
-          margin: 10px;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-          background-color: rgb(23, 53, 153);
-        }
 
         /* Style for input fields */
         input[type="text"] {
@@ -123,8 +128,9 @@
     </head>
     <body>
       <div class="allcontent">
-        <h1>FORGOT Password!!!</h1>
-        <h1>No worries !!<br> We have ways to recover it </h1>
+        <h1 style="margin-left: 9%;">FORGOT Password!!!</h1>
+        <h1 style="margin-left: 13%;">No worries !!</h1>
+        <h1 style="margin-left: 5%;"> We have ways to recover it </h1>
         <div class="login-box">
             <h2>Forgot password</h2>
             <form id="forgotForm">              
@@ -148,7 +154,7 @@
               </div>
               </form>
           </div>
-          <a href="login.html" class="signin-btn1">Back to Login</a>
+          <a href="login.html" class="signin-btn1" style="margin-left: 15%;">Back to Login</a>
           <script>
             var userData;
             function fetchCustomQuestion() {
@@ -175,6 +181,7 @@
         
               if (userData && userData.secret_answer === answer) {
                 alert("Answer is correct! Your password is: " + userData.password);
+                window.location.href='login.html';
               } else {
                 alert("Incorrect answer or user not found.");
               }

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Profile</title>
+    <link rel="stylesheet" href="formsheet.css">
+    <link rel="icon" href="allphotos/logo.png" type="image/x-icon"></link>
+  
+</head>
+<body>
+  <!-- this div container for animation -->
+    <div class="allcontent"> 
+  <!-- this div container for outlined text -->
+    <div class="outlined-text">
+    <h1>Fill this form to add your profile</h1>
+  </div>
+    <div class="login-box">
+        <form id="loginForm" action="/update-student" method="POST" enctype="multipart/form-data">
+          <div id="emailSection">
+            <div class="input-group">
+                <label for="rollno" style="font-size: large;">IITB Roll Number: </label>
+                <input type="text" id="rollno" name="rollno" required>
+            </div>
+            <div class="input-group">
+                <label for="name" style="font-size: large;">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="input-group">
+                <label for="year" style="font-size: large;">Year of Study:</label>
+                <input type="text" id="year" name="year" required>
+            </div>
+            <div class="input-group">
+                <label for="age" style="font-size: large;">Age:</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+            <div class="input-group2">
+                <label>Gender:</label>
+                <input type="radio" id="Male" name="gender" value="Male">
+                <label for="Male">Male</label>
+                <input type="radio" id="Female" name="gender" value="Female">
+                <label for="Female">Female</label>
+                <input type="radio" id="Other" name="gender" value="Other">
+                <label for="Other">Others</label>
+            </div>
+            <br>
+            <div class="input-group">
+                <label for="email" style="font-size: large;">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+            </div>
+            <button type="button" onclick="showInterests()">Next</button>
+          </div>
+            <div class="Interests" id="interestsSection" style="display: none;">
+              <h2>What are your Interests??</h2>
+                <div class="checkbox-with-image">
+                <label for="Traveling">
+                  <div class="image" style="background-image: url('allphotos/travelling.jpg');">
+                    <div class="text">Travelling</div>
+                    <input type="checkbox" id="Traveling" name="Interests" value="Traveling">
+                <span class="checkmark"></span>
+                  </div>                
+                </label>
+                </div>
+                <div class="checkbox-with-image">
+              
+                <label for="Sports">
+                  <div class="image" style="background-image: url('allphotos/sports.png');">
+                    <div class="text">Sports</div>
+                    <input type="checkbox" id="Sports" name="Interests" value="Sports">
+                <span class="checkmark"></span>
+                  </div>                
+                </label>
+                </div>
+                <div class="checkbox-with-image">
+
+                <label for="Movies">
+                  <div class="image" style="background-image: url('allphotos/movie.jpeg');">
+                    <div class="text">Movies</div>
+                    <input type="checkbox" id="Movies" name="Interests" value="Movies">
+                <span class="checkmark"></span>
+                  </div>                
+                </label>
+                  </div>
+                  <div class="checkbox-with-image">
+                <label for="Music">
+                  <div class="image" style="background-image: url('allphotos/music.jpeg');">
+                    <div class="text">Music</div>
+                    <input type="checkbox" id="Music" name="Interests" value="Music">
+                <span class="checkmark"></span>
+                  </div>                
+                </label>
+              </div>
+            <div class="checkbox-with-image">
+
+                <label for="Literature">
+                  <div class="image" style="background-image: url('allphotos/literature.avif');">
+                    <div class="text">Literature</div>
+                    <input type="checkbox" id="Literature" name="Interests" value="Literature">
+                <span class="checkmark"></span>
+                  </div>                
+                </label>
+            </div>
+            <div class="checkbox-with-image">
+                <label for="Technology">
+                  <div class="image" style="background-image: url('allphotos/technology.png');">
+                    <div class="text">Technology</div>
+                    <input type="checkbox" id="Technology" name="Interests" value="Technology">
+                <span class="checkmark"></span>
+                  </div>                
+                </label>
+            </div>
+            <div class="checkbox-with-image">
+                <label for="Fashion">
+                  <div class="image" style="background-image: url('allphotos/fashion.jpeg');">
+                    <div class="text">Fashion</div>
+                    <input type="checkbox" id="Fashion" name="Interests" value="Fashion">
+                <span class="checkmark"></span>
+                  </div>                
+                </label>
+            </div>
+            <div class="checkbox-with-image">
+                <label for="Art">
+                  <div class="image" style="background-image: url('allphotos/art.webp');">
+                    <div class="text">Art</div>
+                    <input type="checkbox" id="Art" name="Interests" value="Art">
+                <span class="checkmark"></span>
+                  </div>                
+                </label>
+            </div>
+            <button type="button" onclick="showorig()">Previous</button>
+                <button type="button" onclick="showHobbies()">Next</button>
+
+            
+          
+            </div>
+            
+            <div class="hobbies" id="hobbiesSection" style="display: none;">
+                <h2>What are your hobbies?</h2>
+                <div class="checkbox-with-image">
+                  <label for="Reading">
+                    <div class="image" style="background-image: url('allphotos/reading.webp');">
+                      <div class="text">Reading</div>
+                      <input type="checkbox" id="Reading" name="Hobbies" value="Reading">
+                  <span class="checkmark"></span>
+                    </div>                
+                  </label>
+              </div>
+
+                <div class="checkbox-with-image">
+                  <label for="Cooking">
+                    <div class="image" style="background-image: url('allphotos/cooking.jpg');">
+                      <div class="text">Cooking</div>
+                      <input type="checkbox" id="Cooking" name="Hobbies" value="Cooking">
+                  <span class="checkmark"></span>
+                    </div>                
+                  </label>
+              </div>
+
+                
+                <div class="checkbox-with-image">
+                  <label for="Coding">
+                    <div class="image" style="background-image: url('allphotos/coding.avif');">
+                      <div class="text">Coding</div>
+                      <input type="checkbox" id="Coding" name="Hobbies" value="Coding">
+                  <span class="checkmark"></span>
+                    </div>                
+                  </label>
+              </div>
+
+
+                <div class="checkbox-with-image">
+                  <label for="Gardening">
+                    <div class="image" style="background-image: url('allphotos/gardening.webp');">
+                      <div class="text">Gardening</div>
+                      <input type="checkbox" id="Gardening" name="Hobbies" value="Gardening">
+                  <span class="checkmark"></span>
+                    </div>                
+                  </label>
+              </div>
+
+            
+                <div class="checkbox-with-image">
+                  <label for="Painting">
+                    <div class="image" style="background-image: url('allphotos/painting.jpeg');">
+                      <div class="text">Painting</div>
+                      <input type="checkbox" id="Painting" name="Hobbies" value="Painting">
+                  <span class="checkmark"></span>
+                    </div>                
+                  </label>
+              </div>
+             
+          
+                <div class="checkbox-with-image">
+                  <label for="Watching YouTube/Instagram">
+                    <div class="image" style="background-image: url('allphotos/youtube.jpeg');">
+                      <div class="text">Watching YouTube/Instagram</div>
+                      <input type="checkbox" id="Watching YouTube/Instagram" name="Hobbies" value="Watching YouTube/Instagram">
+                  <span class="checkmark"></span>
+                    </div>                
+                  </label>
+              </div>
+
+          
+                <div class="checkbox-with-image">
+                  <label for="Playing musical instruments">
+                    <div class="image" style="background-image: url('allphotos/musical.avif');">
+                      <div class="text">Playing musical instruments</div>
+                      <input type="checkbox" id="Playing musical instruments" name="Hobbies" value="Playing musical instruments">
+                  <span class="checkmark"></span>
+                    </div>                
+                  </label>
+              </div>
+            
+            
+                <div class="checkbox-with-image">
+                  <label for="Photography">
+                    <div class="image" style="background-image: url('allphotos/photography.webp');">
+                      <div class="text">Photography</div>
+                      <input type="checkbox" id="Photography" name="Hobbies" value="Photography">
+                  <span class="checkmark"></span>
+                    </div>                
+                  </label>
+              </div>
+                
+              <button type="button" onclick="showhob()">Previous</button>
+                <button type="button" onclick="showPhotoSection()">Next</button>
+            </div>
+            <div class="input-group3" id="photoSection" style="display: none;">
+              <label for="photo" class="upload-btn" style="font-size: large;">Upload your Photo:</label><br>
+              <input type="file" id="photo" name="photo" accept="image/*" onchange="displayPreview(this)"><br><br>
+              <img class="image-container2" id="preview" src="#" alt="Preview" style="display: none; max-width: 200px; max-height: 200px; margin-left: 38%;"><br>
+              <div class="input-group">
+                <label for="comment" style="font-size: medium;">Would you like to add some Bio?😉 </label>
+                <textarea id="comment" name="comment" rows="4" cols="30"></textarea>
+                
+            </div>
+           
+
+
+              <button type="button" onclick="showhobii()">Previous</button>
+            <button type="submit">Update Student</button>
+          </div>
+        </form>      
+        
+    </div>
+    <a href="user.html" class="signin-btn1">Back to Home Screen</a>
+    
+    <script>
+      function showhobii() {
+        document.getElementById("photoSection").style.display = "none";
+        document.getElementById("hobbiesSection").style.display = "block";
+      }
+      function showhob() {
+        document.getElementById("interestsSection").style.display = "block";
+        document.getElementById("hobbiesSection").style.display = "none";
+      }
+      function showorig() {
+        document.getElementById("interestsSection").style.display = "none";
+        document.getElementById("emailSection").style.display = "block";
+      }
+          function showInterests() {
+        document.getElementById("emailSection").style.display = "none";
+        document.getElementById("interestsSection").style.display = "block";
+    }
+
+    function showHobbies() {
+        document.getElementById("interestsSection").style.display = "none";
+        document.getElementById("hobbiesSection").style.display = "block";
+    }
+
+    function showPhotoSection() {
+        document.getElementById("hobbiesSection").style.display = "none";
+        document.getElementById("photoSection").style.display = "block";
+    }
+
+    function displayPreview(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                document.getElementById('preview').style.display = 'block';
+                document.getElementById('preview').src = e.target.result;
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+  function displayPreview(input) {
+    const file = input.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+      const preview = document.getElementById('preview');
+      preview.src = e.target.result;
+      preview.style.display = 'block';
+    }
+
+    reader.readAsDataURL(file);
+  }
+    </script>
+</div>
+</body>
+</html>

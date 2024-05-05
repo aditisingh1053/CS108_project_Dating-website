@@ -1,79 +1,303 @@
 [
-    {
-        "IITB Roll Number": "2023001",
-        "Name": "Aryan Sharma",
-        "Year of Study": "3rd",
-        "Age": 21,
-        "Gender": "Male",
-        "Interests": ["Traveling", "Music"],
-        "Hobbies": ["Reading", "Playing musical instruments"],
-        "Email": "aryan@example.com",
-        "Photo": "photos/aryan_sharma.png"
-    },
-    {
-        "IITB Roll Number": "2023002",
-        "Name": "Aditi Singh",
-        "Year of Study": "2nd",
-        "Age": 20,
-        "Gender": "Female",
-        "Interests": ["Movies", "Art"],
-        "Hobbies": ["Cooking", "Painting"],
-        "Email": "aditi@example.com",
-        "Photo": "photos/aditi_singh.png"
-    },
-    {
-        "IITB Roll Number": "2023003",
-        "Name": "Rahul Patel",
-        "Year of Study": "4th",
-        "Age": 22,
-        "Gender": "Male",
-        "Interests": ["Technology", "Sports"],
-        "Hobbies": ["Coding", "Watching YouTube/Instagram"],
-        "Email": "rahul@example.com",
-        "Photo": "photos/rahul_patel.png"
-    },
-    {
-        "IITB Roll Number": "2023004",
-        "Name": "Sneha Desai",
-        "Year of Study": "1st",
-        "Age": 19,
-        "Gender": "Female",
-        "Interests": ["Literature", "Fashion"],
-        "Hobbies": ["Gardening", "Painting"],
-        "Email": "sneha@example.com",
-        "Photo": "photos/sneha_desai.png"
-    },
-    {
-        "IITB Roll Number": "2023005",
-        "Name": "Rohan Gupta",
-        "Year of Study": "3rd",
-        "Age": 21,
-        "Gender": "Male",
-        "Interests": ["Movies", "Technology"],
-        "Hobbies": ["Playing musical instruments", "Watching YouTube/Instagram"],
-        "Email": "rohan@example.com",
-        "Photo": "photos/rohan_gupta.jpg"
-    },
-    {
-        "IITB Roll Number": "2023006",
-        "Name": "Neha Reddy",
-        "Year of Study": "4th",
-        "Age": 22,
-        "Gender": "Female",
-        "Interests": ["Art", "Music"],
-        "Hobbies": ["Reading", "Painting"],
-        "Email": "neha@example.com",
-        "Photo": "photos/neha_reddy.png"
-    },
-    {
-        "IITB Roll Number": "2023007",
-        "Name": "Vivek Kumar",
-        "Year of Study": "2nd",
-        "Age": 20,
-        "Gender": "Male",
-        "Interests": ["Sports", "Technology"],
-        "Hobbies": ["Coding", "Watching YouTube/Instagram"],
-        "Email": "vivek@example.com",
-        "Photo": "photos/vivek_kumar.jpg"
-    }
+  {
+    "IITB Roll Number": "2023001",
+    "Name": "Aryan Sharma",
+    "Year of Study": "3rd",
+    "Age": 21,
+    "Gender": "Male",
+    "Interests": [
+      "Traveling",
+      "Music"
+    ],
+    "Hobbies": [
+      "Reading",
+      "Playing musical instruments"
+    ],
+    "Email": "aryan@example.com",
+    "Photo": "photos/aryan_sharma.png",
+    "likeCount": 34
+  },
+  {
+    "IITB Roll Number": "2023002",
+    "Name": "Aditi Singh",
+    "Year of Study": "2nd",
+    "Age": 20,
+    "Gender": "Female",
+    "Interests": [
+      "Movies",
+      "Art"
+    ],
+    "Hobbies": [
+      "Cooking",
+      "Painting"
+    ],
+    "Email": "aditi@example.com",
+    "Photo": "photos/aditi_singh.png",
+    "likeCount": 33
+  },
+  {
+    "IITB Roll Number": "2023003",
+    "Name": "Rahul Patel",
+    "Year of Study": "4th",
+    "Age": 22,
+    "Gender": "Male",
+    "Interests": [
+      "Technology",
+      "Sports"
+    ],
+    "Hobbies": [
+      "Coding",
+      "Watching YouTube/Instagram"
+    ],
+    "Email": "rahul@example.com",
+    "Photo": "photos/rahul_patel.png",
+    "likeCount": 23
+  },
+  {
+    "IITB Roll Number": "2023004",
+    "Name": "Sneha Desai",
+    "Year of Study": "1st",
+    "Age": 19,
+    "Gender": "Female",
+    "Interests": [
+      "Literature",
+      "Fashion"
+    ],
+    "Hobbies": [
+      "Gardening",
+      "Painting"
+    ],
+    "Email": "sneha@example.com",
+    "Photo": "photos/sneha_desai.png",
+    "likeCount": 5
+  },
+  {
+    "IITB Roll Number": "2023005",
+    "Name": "Rohan Gupta",
+    "Year of Study": "3rd",
+    "Age": 21,
+    "Gender": "Male",
+    "Interests": [
+      "Movies",
+      "Technology"
+    ],
+    "Hobbies": [
+      "Playing musical instruments",
+      "Watching YouTube/Instagram"
+    ],
+    "Email": "rohan@example.com",
+    "Photo": "photos/rohan_gupta.jpg",
+    "likeCount": 8
+  },
+  {
+    "IITB Roll Number": "2023006",
+    "Name": "Neha Reddy",
+    "Year of Study": "4th",
+    "Age": 22,
+    "Gender": "Female",
+    "Interests": [
+      "Art",
+      "Music"
+    ],
+    "Hobbies": [
+      "Reading",
+      "Painting"
+    ],
+    "Email": "neha@example.com",
+    "Photo": "photos/neha_reddy.png",
+    "likeCount": 12
+  },
+  {
+    "IITB Roll Number": "2023007",
+    "Name": "Vivek Kumar",
+    "Year of Study": "2nd",
+    "Age": 20,
+    "Gender": "Male",
+    "Interests": [
+      "Sports",
+      "Technology"
+    ],
+    "Hobbies": [
+      "Coding",
+      "Watching YouTube/Instagram"
+    ],
+    "Email": "vivek@example.com",
+    "Photo": "photos/vivek_kumar.jpg",
+    "likeCount": 17
+  },
+  {
+    "IITB Roll Number": "23B1053",
+    "Name": "Aditi Singh",
+    "Year of Study": "1st",
+    "Age": 19,
+    "Gender": "Female",
+    "Email": "aditisumansingh@gmail.com",
+    "Interests": [
+      "Traveling",
+      "Movies",
+      "Music",
+      "Technology",
+      "Fashion",
+      "Art"
+    ],
+    "Hobbies": [
+      "Coding",
+      "Watching YouTube/Instagram"
+    ],
+    "Comments": "I love ice creams and choclates .",
+    "Photo": "photos/photo-1714064967908.jpg",
+    "likeCount": 20056
+  },
+  {
+    "IITB Roll Number": "23B0953",
+    "Name": "Aakash Gupta",
+    "Year of Study": "2nd",
+    "Age": 19,
+    "Gender": "Male",
+    "Email": "23b0953@iitb.ac.in",
+    "Interests": [
+      "Sports",
+      "Movies",
+      "Music",
+      "Fashion",
+      "Art"
+    ],
+    "Hobbies": [
+      "Coding",
+      "Gardening",
+      "Painting",
+      "Playing musical instruments",
+      "Photography"
+    ],
+    "Comments": "Life changes so fast that I cant tell u. Love vanishes every moment and what left is heartbrocken and sadness.",
+    "Photo": "photos/photo-1714071402835.jpg",
+    "likeCount": 3
+  },
+  {
+    "IITB Roll Number": "22B1081",
+    "Name": "Rishi Kalra",
+    "Year of Study": "1st",
+    "Age": 18,
+    "Gender": "Male",
+    "Email": "23b1081@iitb.ac.in",
+    "Photo": "photos/rizzi.jpg",
+    "Interests": [
+      "Movies",
+      "Music",
+      "Technology",
+      "Fashion",
+      "Art"
+    ],
+    "Hobbies": [
+      "Photography"
+    ],
+    "likeCount": 27
+  },
+  {
+    "IITB Roll Number": "23B1083",
+    "Name": "Jigyasa Chauhan",
+    "Year of Study": "1st",
+    "Age": 19,
+    "Gender": "Female",
+    "Email": "23b1083@iitb.ac.in",
+    "Interests": [
+      "Traveling",
+      "Sports",
+      "Movies",
+      "Music",
+      "Technology"
+    ],
+    "Hobbies": [
+      "Reading",
+      "Cooking",
+      "Coding",
+      "Painting"
+    ],
+    "Comments": "The photo speaks for itself",
+    "Photo": "photos/jigyy.jpg",
+    "likeCount": 1
+  },
+  {
+    "IITB Roll Number": "23B1034",
+    "Name": "Malay Kedia",
+    "Year of Study": "1",
+    "Age": 16,
+    "Gender": "Male",
+    "Email": "23b1034@iitb.ac.in",
+    "Photo": "photos/photo-1714074406099.jpg",
+    "Interests": [
+      "Traveling",
+      "Movies",
+      "Music",
+      "Technology"
+    ],
+    "Hobbies": [
+      "Coding",
+      "Painting",
+      "Watching YouTube/Instagram"
+    ],
+    "Comments": "I am gay"
+  },
+  {
+    "IITB Roll Number": "23B1035",
+    "Name": "Sameer Patil",
+    "Year of Study": "1st",
+    "Age": 18,
+    "Gender": "Male",
+    "Email": "23b1035@iitb.ac.in",
+    "Photo": "photos/photo-1714074635827.jpg",
+    "Interests": [
+      "Movies",
+      "Fashion"
+    ],
+    "Hobbies": [
+      "Coding",
+      "Watching YouTube/Instagram"
+    ],
+    "Comments": "I am commited and i dont need a website"
+  },
+  {
+    "IITB Roll Number": "23b0902",
+    "Name": "Arya Suwalka",
+    "Year of Study": "1st",
+    "Age": 18,
+    "Gender": "Female",
+    "Email": "23b0902@iitb.ac.in",
+    "Photo": "photos/photo-1714123927153.jpeg",
+    "Interests": [
+      "Traveling",
+      "Sports",
+      "Movies",
+      "Music",
+      "Fashion",
+      "Art"
+    ],
+    "Hobbies": [
+      "Painting",
+      "Watching YouTube/Instagram",
+      "Photography"
+    ],
+    "Comments": "I am not single"
+  },
+  {
+    "IITB Roll Number": "23B00056",
+    "Name": "Suman Singh",
+    "Year of Study": "1st",
+    "Age": 56,
+    "Gender": "Female",
+    "Email": "23b1053@iitb.ac.in",
+    "Interests": [
+      "Music",
+      "Literature"
+    ],
+    "Hobbies": [
+      "Reading",
+      "Cooking",
+      "Gardening",
+      "Painting"
+    ],
+    "Comments": "jay shree krishna",
+    "Photo": "photos/photo-1714494091221.jpg",
+    "likeCount": 36
+  }
 ]

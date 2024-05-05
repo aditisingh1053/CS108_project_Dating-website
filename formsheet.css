@@ -1,0 +1,312 @@
+body{
+    /* background-color: rgb(165,206,255 ); */
+    text-align: center;
+    color: #f79d65;
+    min-height: 110vh;
+    /* background-image: url('allphotos/finalasofnow.png'); */
+    /* animation: slideshow 20s infinite; */
+    background-size: 100% 100%;
+    background-color: black;
+    /* Prevent the image from repeating */
+    background-repeat: no-repeat;
+    font-size: large;
+    font-family:cursive;
+    }
+
+    p{
+font-size: x-large;
+}
+  .profile {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: rgb(40,40,40);
+    position: relative; /* Use relative positioning */
+  }
+    .profile:hover {
+        background-color: rgb(70,70,70);
+        color: white;
+        border: 3px solid white;
+    }
+
+
+h1{
+/* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+font-size: 30pt;
+
+}
+
+.login-box {
+width: 60%;
+margin: 50px auto;
+color: #f79d65;
+background-color: rgb(30,30,30) ;
+/* box-shadow: 5px 10px 10px rgba(180, 220, 255, 0.7); */
+padding: 20px;
+border: 20px solid #f79d65 ; 
+/* animation: slideUp 1s ease forwards; */
+border-radius: 10px;
+text-align: center;
+}
+.allcontent{
+animation: slideUp 2s ease forwards; 
+}
+@keyframes slideUp {
+0% {
+transform: translate(0%, 100%);
+opacity: 0;
+}
+100% {
+transform: translate(0%, 0);
+opacity: 1;
+}
+}
+
+.login-box h2 {
+text-align: center;
+color: #f79d65; /* Revert h2 color to yellow */
+}
+.outlined-text {
+    /* font-size: 64pt; */
+    color: #f79d65; /* Set the text color */
+    text-shadow: 
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px  1px 0 #000,
+    1px  1px 0 #000; /* Define the outline using multiple shadows */
+
+}
+
+.input-group {
+margin-bottom: 20px;
+margin-right: 20px;
+text-align: center; /* Reset text alignment for label */
+}
+
+.input-group label {
+display: block;
+margin-bottom: 5px;
+text-align: center;
+color: #f79d65; /* Revert label color to yellow */
+}
+
+.input-group input {
+width:35%; 
+padding: 10px;
+border-radius: 5px;
+border: 1px solid #e9c9b5;
+color: black; /* Change input text color to black */
+}
+
+.login-btn {
+width: 75%;
+padding: 10px;
+background-color:#f79d65 ;
+color: black;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+background-color:  #ebc4ab;
+}
+.links-container {
+display: flex; /* Use flexbox to align items horizontally */
+}
+
+.forgot-password {
+text-align: left; /* Center align the content */
+padding-top: 10px; /* Add padding to the top */
+margin-right: 100px;
+color: rgb(255,255,255);
+text-decoration: none;
+}
+a{
+color: rgb(255,255,255);
+}
+.register {
+text-align: right; /* Center align the content */
+padding-top: 15px; 
+color: white;
+text-decoration: none;
+
+}
+.signin-btn1 {
+background-color:  #f79d65 ;
+color: black;
+padding: 10px 20px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+border-radius: 5px;
+border: none;
+transition: background-color 0.3s ease; /* Transition Effect */
+}
+
+.signin-btn1:hover {
+background-color:  #efb794;
+}
+button {
+background-color: #f79d65;
+color: black;
+padding: 10px 20px;
+text-align: center;
+margin-right: 15px;
+text-decoration: none;
+/* padding: 10px; */
+display: inline-block;
+font-size: 16px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+button:hover {
+background-color:  #f7c3a3;
+}
+
+.input-group1 label {
+/* display: block; */
+/* margin-bottom: 5px; */
+color: black; 
+}
+
+.input-group1 input {
+width:230px; 
+padding: 10px;
+border-radius: 5px;
+border: 1px solid #ccc;
+/* text-align: left; */
+color: black; /* Change input text color to black */
+}
+.input-group1 {
+margin-bottom: 20px;
+margin-right: 20px;
+text-align: left; /* Reset text alignment for label */
+}
+.input-group2 label {
+font-size: large;
+margin-right: 10px;
+margin-bottom: 10px;
+
+}
+.input-group2 input[type="radio"] {
+margin-right: 10px;
+transform: scale(1.5); /* Increase the size of radio buttons */
+}
+
+.upload-btn {
+display: inline-block;
+padding: 10px 20px;
+font-size: 16px;
+/* background-color: #007bff; */
+color: #f79d65;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.upload-btn input[type="file"] {
+display: none;
+color: white;
+}
+.preview-container {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 200px; /* Set a fixed height for the container */
+}
+
+.checkbox-with-image {
+    position: relative;
+    padding: 10px;
+    display: inline-block;
+  }
+  
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .image {
+    position: relative;
+    width: 200px; /* Adjust width and height as needed */
+    height: 200px; /* Adjust width and height as needed */
+    background-size: cover;
+    transition: filter 0.3s;
+  }
+  
+  .text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Background color of the text box */
+    color: white; /* Text color */
+    padding: 5px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  .checkbox-with-image:hover .image {
+    filter: brightness(70%);
+  }
+  
+  /* Checkmark styling */
+  .checkmark {
+    position: absolute;
+    top: 50%;
+    left: 5px; /* Adjust as needed */
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 2px solid black; /* Border color of the checkbox */
+    border-radius: 4px;
+  }
+  
+  /* Show custom checkbox checked style */
+  input[type="checkbox"]:checked + .checkmark::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: #007bff; /* Checkbox background color when checked */
+  }
+  
+  .image-container2 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    height: 200px; /* Set a fixed height for the container */
+  }
+  .input-group3 input {
+    width:230px; 
+    padding: 10px;
+    font-size:medium;
+    border-radius: 5px;
+ 
+    
+    }
+  .input-group textarea{
+    width: 230px;
+    padding: 10px;
+    font-family: cursive;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: black; /* Change input text color to black */
+  }
+  

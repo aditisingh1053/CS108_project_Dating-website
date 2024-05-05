@@ -2,87 +2,279 @@
 <html lang="en">
 <head>
 <title>Student Profiles</title>
-<link rel="icon" href="logo.png" type="image/x-icon"></link>
-<style>
-    /* CSS Styles */
-    .student-profile {
-        background-color: rgb(200,226,255 ) ;
-        box-shadow: 5px 10px 10px rgba(180, 220, 255, 0.7);
-        /* border: 1px solid #ccc; */
-        border: 2px solid rgb(180,220,255 ) ; 
-        /* animation: slideUp 1s ease forwards; */
-        border-radius: 10px;
-        /* text-align: center; */
-        margin-bottom: 30px;
-        padding: 10px;
-        display: flex;
-        width: 50%;
-        margin: 0 auto;
-        animation: slideUp 2s ease forwards;
-        
-        margin-bottom: 20px; /* Added margin between profiles */
-    }
-    @keyframes slideUp {
-    0% {
-        transform: translate(0%, 100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translate(0%, 0);
-        opacity: 1;
-    }
-}
-    .profile-image {
-        max-width: 250px;
-        max-height: 250px;
-        margin-right: 20px;
-    }
-    .profile-details {
-        flex: 1;
-    }
-    .profile-details h2 {
-        margin-top: 0;
-    }
-    .signin-btn1 {
-    background-color:  rgb(200,226,255 ) ;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    color: black;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 5px;
-    border: none;
-    transition: background-color 0.3s ease; /* Transition Effect */
-  }
-  
-  .signin-btn1:hover {
-    background-color:  rgb(170,190,225 );
-  }
-  .signin-btn1-container {
-    display: flex;
-    justify-content: center;
-}
-    body{
-        background-image: url("stars.webp");
-    animation: animatedBackground 10s linear infinite;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* text-align: center; */
-    }
-    .buttonss{
-        text-align: center;
-    }
-</style>
+<link rel="stylesheet" href="newstylesheet.css">
+<link rel="icon" href="allphotos/logo.png" type="image/x-icon"></link>
 </head>
 <body>
+    
+    <div class="sidebar">
+        <button id="close-btn">&times;</button> <!-- Unicode character for cross sign -->
+        <!-- Content of the sidebar goes here -->
+        <h2 style="text-align: center;font-size: 130%;">Filters</h2>
+        <div class="filter-section">
+        <!---To create a filter section with various buttons inside the sidebar and a slide button with a right arrow at the end  -->
+        <button class="filter-button" id="gender-btn" >Gender <span class="arrow-button"></span></button>
+        <div class="checkboxes" id="gender-checkboxes">
+            <input type="checkbox" id="male" name="gender" value="Male">
+            <label for="male">Male</label><br>
+            <input type="checkbox" id="female" name="gender" value="Female">
+            <label for="female">Female</label><br>
+            <input type="checkbox" id="others" name="gender" value="Others">
+            <label for="others">Others</label><br>
+          </div>
+        <button class="filter-button" id="study-btn">Year of Study <span class="arrow-button"></span></button>
+        <div class="checkboxes" id="study-checkboxes">
+            <input type="checkbox" id="1st" name="year" value="1st">
+            <label for="1st">First Year</label><br>
+            <input type="checkbox" id="2nd" name="year" value="2nd">
+            <label for="2nd">Second Year</label><br>
+            <input type="checkbox" id="3rd" name="year" value="3rd">
+            <label for="3rd">Third Year</label><br>
+            <input type="checkbox" id="4th" name="year" value="4th">
+            <label for="4th">Fourth Year</label><br>
+            <input type="checkbox" id="other" name="year" value="other">
+            <label for="other">Others</label><br>
+          </div>
+          <button class="filter-button" id="age-btn">Age <span class="arrow-button"></span></button>
+          <!--- created checkboxes as above for fields like less than 15 15-18 18-20 20-25 25-30 and grater than 30-->
+            <div class="checkboxes" id="age-checkboxes">
+                <input type="checkbox" id="lessThan15" name="age" value="lessThan15">
+                <label for="lessThan15">Less than 15</label><br>
+                <input type="checkbox" id="15-17" name="age" value="15-17">
+                <label for="15-17">15-17</label><br>
+                <input type="checkbox" id="18-20" name="age" value="18-20">
+                <label for="18-20">18-20</label><br>
+                <input type="checkbox" id="21-23" name="age" value="21-23">
+                <label for="21-23">21-23</label><br>
+                <input type="checkbox" id="23-25" name="age" value="23-25">
+                <label for="23-25">23-25</label><br>
+                <input type="checkbox" id="greaterThan25" name="age" value="greaterThan25">
+                <label for="greaterThan25">Greater than 25</label><br>
+            </div>
+        <button class="filter-button" id="interest-btn">Interests <span class="arrow-button"></span></button>
+        <!-- Created buttons as above with same is value and fields and the options are  “Traveling”, “Sports”, “Movies”, “Music”, “Literature”, “Technology”, “Fashion” and “Art”-->
+        <div class="checkboxes" id="interest-checkboxes">
+            <input type="checkbox" id="Traveling" name="Interests" value="Traveling">
+            <label for="Traveling">Traveling</label><br>
+            <input type="checkbox" id="Sports" name="Interests" value="Sports">
+            <label for="Sports">Sports</label><br>
+            <input type="checkbox" id="Movies" name="Interests" value="Movies">
+            <label for="Movies">Movies</label><br>
+            <input type="checkbox" id="Music" name="Interests" value="Music">
+            <label for="Music">Music</label><br>
+            <input type="checkbox" id="Literature" name="Interests" value="Literaturee">
+            <label for="Literature">Literature</label><br>    
+            <input type="checkbox" id="Technology" name="Interests" value="Technology">
+            <label for="Technology">Technology</label><br>
+            <input type="checkbox" id="Fashion" name="Interests" value="Fashion">
+            <label for="Fashion">Fashion</label><br>
+            <input type="checkbox" id="Art" name="Interests" value="Art">
+            <label for="Art">Art</label><br>
+          </div>
+
+        <button class="filter-button" id="hobbies-btn">Hobbies <span class="arrow-button"></span></button>
+        <!-- Created buttons as above with same is value and fields and the options are “Reading”, “Cooking”, “Coding”, “Gardening”, “Painting”, “Watching YouTube/Instagram”, “Playing musical instruments” and “Photography” and the name for id should be same as the whole name it should not be parted-->
+          <div class="checkboxes" id="hobbies-checkboxes">
+            <input type="checkbox" id="Reading" name="Hobbies" value="Reading">
+            <label for="Reading">Reading</label><br>
+            <input type="checkbox" id="Cooking" name="Hobbies" value="Cooking">
+            <label for="Cooking">Cooking</label><br>
+            <input type="checkbox" id="Coding" name="Hobbies" value="Coding">
+            <label for="Coding">Coding</label><br>
+            <input type="checkbox" id="Gardening" name="Hobbies" value="Gardening">
+            <label for="Gardening">Gardening</label><br>
+            <input type="checkbox" id="Painting" name="Hobbies" value="Painting">
+            <label for="Painting">Painting</label><br>
+            <input type="checkbox" id="Watching YouTube/Instagram" name="Hobbies" value="Watching YouTube/Instagram">
+            <label for="Watching YouTube/Instagram">Watching YouTube/Instagram</label><br>
+            <input type="checkbox" id="Playing musical instruments" name="Hobbies" value="Playing musical instruments">
+            <label for="Playing musical instruments">Playing musical instruments</label><br>
+            <input type="checkbox" id="Photography" name="Hobbies" value="Photography">
+            <label for="Photography">Photography</label><br>
+          </div>
+            
+        </div>
+        <button id="save-btn" onclick="filterStudents()" class="filterr-btn" >Apply Filters</button>
+      </div>
+    <div class="container">
+        <div class="hamburger-menu">
+          <button id="menu-btn">&#9776;</button> <!-- Unicode character for three dots -->
+        </div>
+        </div>
 <div id="profiles-container"></div>
 <div class="buttonss">
-    <a href="dating.html" class="signin-btn1">Back to dating form </a>
-    <a href="login.html" class="signin-btn1">Logout</a>
+    <a href="user.html" class="signin-btn1">Back to Home screen </a>
 </div>
 <script>
+    document.getElementById('age-btn').addEventListener('click', function() {
+  var checkboxes = document.getElementById('age-checkboxes');
+  if (checkboxes.style.display === 'block') {
+    checkboxes.style.display = 'none';
+  } else {
+    checkboxes.style.display = 'block';
+  }
+});
+document.getElementById('gender-btn').addEventListener('click', function() {
+  var checkboxes = document.getElementById('gender-checkboxes');
+  if (checkboxes.style.display === 'block') {
+    checkboxes.style.display = 'none';
+  } else {
+    checkboxes.style.display = 'block';
+  }
+});
+document.getElementById('study-btn').addEventListener('click', function() {
+  var checkboxes = document.getElementById('study-checkboxes');
+  if (checkboxes.style.display === 'block') {
+    checkboxes.style.display = 'none';
+  } else {
+    checkboxes.style.display = 'block';
+  }
+});
+document.getElementById('interest-btn').addEventListener('click', function() {
+  var checkboxes = document.getElementById('interest-checkboxes');
+  if (checkboxes.style.display === 'block') {
+    checkboxes.style.display = 'none';
+  } else {
+    checkboxes.style.display = 'block';
+  }
+});
+document.getElementById('hobbies-btn').addEventListener('click', function() {
+  var checkboxes = document.getElementById('hobbies-checkboxes');
+  if (checkboxes.style.display === 'block') {
+    checkboxes.style.display = 'none';
+  } else {
+    checkboxes.style.display = 'block';
+  }
+});
+
+
+
+document.getElementById('close-btn').addEventListener('click', function() {
+  document.querySelector('.sidebar').classList.remove('active');
+});
+
+    document.getElementById('menu-btn').addEventListener('click', function() {
+  document.querySelector('.sidebar').classList.toggle('active');
+});
+
+
+
+
+     function likeButtonClick(id) {
+        const button = document.getElementById(id);
+        console.log(button);
+        button.classList.toggle('clicked');
+        
+        }
+    function likeProfile(rollNumber) {
+            fetch(`/like-profile/${rollNumber}`, { method: 'POST' })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    // alert('Profile liked successfully');
+                    // window.location.reload();
+                    // console.log(data);
+                })
+                .catch(error => {
+                    console.error('Error liking profile:', error);
+                    alert('Error liking profile. Please try again.');
+                });
+        }
+       function filterStudents() {
+        fetch('students.json')
+    .then(response => response.json())
+    .then(data => {
+    // Get all selected filter values
+    const selectedGender = Array.from(document.querySelectorAll('#gender-checkboxes input:checked')).map(input => input.value);
+    const selectedYear = Array.from(document.querySelectorAll('#study-checkboxes input:checked')).map(input => input.value);
+    const selectedAge = Array.from(document.querySelectorAll('#age-checkboxes input:checked')).map(input => input.value);
+    const selectedInterests = Array.from(document.querySelectorAll('#interest-checkboxes input:checked')).map(input => input.value);
+    const selectedHobbies = Array.from(document.querySelectorAll('#hobbies-checkboxes input:checked')).map(input => input.value);
+    function YearOfStudy(year) {
+    const lowercaseYear = year.toLowerCase();
+    if (lowercaseYear === '1st' || lowercaseYear === '1' || lowercaseYear === 'first' || lowercaseYear === 'first year' || lowercaseYear === 'first-year' || lowercaseYear === 'first year of study' || lowercaseYear === 'first-year of study' || lowercaseYear === 'first year of study' || lowercaseYear === 'first-year of study') {
+        return '1st';
+    } else if (lowercaseYear === '2nd' || lowercaseYear === '2' || lowercaseYear === 'second' || lowercaseYear === 'second year' || lowercaseYear === 'second-year' || lowercaseYear === 'second year of study' || lowercaseYear === 'second-year of study' || lowercaseYear === 'second year of study' || lowercaseYear === 'second-year of study') {
+        return '2nd';
+    } else if (lowercaseYear === '3rd' || lowercaseYear === '3' || lowercaseYear === 'third' || lowercaseYear === 'third year' || lowercaseYear === 'third-year' || lowercaseYear === 'third year of study' || lowercaseYear === 'third-year of study' || lowercaseYear === 'third year of study' || lowercaseYear === 'third-year of study') {
+        return '3rd';
+    } else if (lowercaseYear === '4th' || lowercaseYear === '4' || lowercaseYear === 'fourth'   || lowercaseYear === 'fourth year' || lowercaseYear === 'fourth-year' || lowercaseYear === 'fourth year of study' || lowercaseYear === 'fourth-year of study' || lowercaseYear === 'fourth year of study' || lowercaseYear === 'fourth-year of study') {
+        return '4th';
+    } else {
+        return 'other';
+    }
+}
+    // Filter students based on selected criteria
+    const filteredStudents = data.filter(student => {
+      // console.log(selectedHobbies)
+      // console.log(student.Hobbies)
+        return (
+            (selectedGender.length === 0 || selectedGender.includes(student.Gender)) &&
+            (selectedYear.length === 0 || selectedYear.includes(YearOfStudy(student['Year of Study']))) &&
+            (selectedAge.length === 0 || selectedAge.some(age => {
+                if (age === 'lessThan15') {
+                    return student.Age < 15;
+                } else if (age === '15-17') {
+                    return student.Age >= 15 && student.Age <= 17;
+                } else if (age === '18-20') {
+                    return student.Age >= 18 && student.Age <= 20;
+                } else if (age === '21-23') {
+                    return student.Age >= 21 && student.Age <= 23;
+                } else if (age === '23-25') {
+                    return student.Age >= 23 && student.Age <= 25;
+                } else if (age === 'greaterThan25') {
+                    return student.Age > 25;
+                }
+            })) &&
+            (selectedInterests.length === 0 || selectedInterests.every(interest => student.Interests.includes(interest))) &&
+            (selectedHobbies.length === 0 || selectedHobbies.every(hobby => student.Hobbies.includes(hobby)))
+        );
+    });
+    console.log(filteredStudents)
+        // Clear existing profiles
+        const container = document.getElementById('profiles-container');
+    container.innerHTML = '';
+    if (filteredStudents.length === 0) {
+        const noResults = document.createElement('p');
+        noResults.textContent = 'No Person found matching the selected criteria';
+        noResults.style.textAlign = 'center';
+        container.appendChild(noResults);
+        return;
+    }
+    // Display filtered students
+    filteredStudents.forEach(student => {
+        const profile = document.createElement('div');
+        profile.classList.add('student-profile');
+        const content = `
+        <img src="${student.Photo}" alt="${student.Name}" class="profile-image">
+                <div class="profile-details">
+                  <div class="button-heading-container">
+                    <h2>${student.Name}</h2>
+                    <button class="like-button" data-rollnumber="${student['IITB Roll Number']}" onclick="likeButtonClick('${student['IITB Roll Number']}')" id="${student['IITB Roll Number']}"><span class="star-icon"></span> Like</button>
+                    </div>
+                    <p><strong>Roll Number:</strong> ${student['IITB Roll Number']}</p>
+                    <p><strong>Year of Study:</strong> ${student['Year of Study']}</p>
+                    <p><strong>Age:</strong> ${student.Age}</p>
+                    <p><strong>Gender:</strong> ${student.Gender}</p>
+                    <p><strong>Interests:</strong> ${Array.isArray(student.Interests) ? (student.Interests.length > 0 ? student.Interests.join(', ') : student.Interests) : student.Interests}</p>
+                    <p><strong>Hobbies:</strong> ${Array.isArray(student.Hobbies) ? (student.Hobbies.length > 0 ? student.Hobbies.join(', ') : student.Hobbies) : student.Hobbies}</p>
+                    <p><strong>Email:</strong> <a href="mailto:${student.Email}" class="mail-people">${student.Email}</a></p>
+                    <p><strong>Likes recieved:</strong> <span id="like-count-${student['IITB Roll Number']}">${student.likeCount || 0}</span></p>
+                    <p><strong>Comments:</strong> <span >${student.Comments || "None"}</span></p>
+                </div>
+        `;
+        profile.innerHTML = content;
+        container.appendChild(profile);
+    });
+}
+);}
+
+
+    
     // Fetch JSON data
     fetch('students.json')
     .then(response => response.json())
@@ -100,14 +292,20 @@
             const content = `
                 <img src="${student.Photo}" alt="${student.Name}" class="profile-image">
                 <div class="profile-details">
+                  <div class="button-heading-container">
                     <h2>${student.Name}</h2>
+                    <button class="like-button" data-rollnumber="${student['IITB Roll Number']}" onclick="likeButtonClick('${student['IITB Roll Number']}')" id="${student['IITB Roll Number']}"><span class="star-icon"></span> Like</button>
+                    </div>
                     <p><strong>Roll Number:</strong> ${student['IITB Roll Number']}</p>
                     <p><strong>Year of Study:</strong> ${student['Year of Study']}</p>
                     <p><strong>Age:</strong> ${student.Age}</p>
                     <p><strong>Gender:</strong> ${student.Gender}</p>
-                    <p><strong>Interests:</strong> ${student.Interests.join(', ')}</p>
-                    <p><strong>Hobbies:</strong> ${student.Hobbies.join(', ')}</p>
-                    <p><strong>Email:</strong> <a href="mailto:${student.Email}">${student.Email}</a></p>
+                    <p><strong>Interests:</strong> ${Array.isArray(student.Interests) ? (student.Interests.length > 0 ? student.Interests.join(', ') : student.Interests) : student.Interests}</p>
+                    <p><strong>Hobbies:</strong> ${Array.isArray(student.Hobbies) ? (student.Hobbies.length > 0 ? student.Hobbies.join(', ') : student.Hobbies) : student.Hobbies}</p>
+                    <p><strong>Email:</strong> <a href="mailto:${student.Email}" class="mail-people">${student.Email}</a></p>
+                    <p><strong>Likes recieved:</strong> <span id="like-count-${student['IITB Roll Number']}">${student.likeCount || 0}</span></p>
+                    <p><strong>Comments:</strong> <span >${student.Comments || "None"}</span></p>
+                    
                 </div>
             `;
 
@@ -117,8 +315,21 @@
             // Append profile to container
             container.appendChild(profile);
         });
+       
+
+
+        // Add event listener to like buttons
+        const likeButtons = document.querySelectorAll('.like-button');
+        likeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const rollNumber = button.dataset.rollnumber;
+                likeProfile(rollNumber);
+            });
+        });
     })
     .catch(error => console.error('Error fetching JSON:', error));
+    
 </script>
+
 </body>
 </html>

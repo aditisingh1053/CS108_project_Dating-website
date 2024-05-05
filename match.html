@@ -1,101 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Match mingle</title>
-    <!-- <link rel="stylesheet" href="styling.css"> -->
-    <link rel="icon" href="logo.png" type="image/x-icon"></link>
-    <style>
-        body{
-            background-color: rgb(165,206,255 );
-            text-align: center;
-            color: rgb(235,235,255 );
-            min-height: 110vh;
-            background-image: url('image1.jpeg');
-            animation: animatedBackground 10s linear infinite;
-            background-size: 100% 100%;
-            
-            /* Prevent the image from repeating */
-            background-repeat: no-repeat;
-            font-size: large;
-            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .buttonss{
-            text-align: center;
-        }
-                .login-box {
-            width: 400px;
-            margin: 50px auto;
-            color: rgb(55, 44, 23);
-            background-color: rgb(165,206,255 ) ;
-            box-shadow: 5px 10px 10px rgba(180, 220, 255, 0.7);
-            padding: 20px;
-            border: 2px solid rgb(180,220,255 ) ; 
-            border-radius: 10px;
-            text-align: center;
-            /* animation: slideUp 1s ease forwards; */
-        }
-        .allcontent{
-            animation: slideUp 2s ease forwards;
-        }
-        @keyframes slideUp {
-            0% {
-                transform: translate(0%, 100%);
-                opacity: 0;
-            }
-            100% {
-                transform: translate(0%, 0);
-                opacity: 1;
-            }
-        }
-        
-        .login-box h2 {
-            text-align: center;
-            color: black; /* Revert h2 color to yellow */
-        }
-        .profile-image {
-                max-width: 250px;
-                max-height: 250px;
-                margin-right: 20px;
-            }
-            .signin-btn1 {
-            background-color: rgb(164, 200, 255);
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            color: black;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 5px;
-            border: none;
-            transition: background-color 0.3s ease; /* Transition Effect */
-        }
-        
-        .signin-btn1:hover {
-            background-color: rgb(23, 53, 123);
-        }
-        .signin-btn1-container {
-            display: flex;
-            justify-content: center;
-        }
-
-    </style>
+    <title>Best Match</title>
+    <link rel="stylesheet" href="newstylesheet.css">
+    <link rel="icon" href="allphotos/logo.png" type="image/x-icon"></link>
 </head>
 <body>
     <div class="allcontent">
-    <!-- <script src="script.js"></script> -->
-    <h1>Greetings!!!</h1>
-    <!-- <h1>Sign in to continue</h1> -->
-    <div class="login-box">
-        <h2 id="displayname"></h2>
-        <h2 id ="matched"></h2>
-        <div id="matchData">
-            <!-- Match data will be displayed here -->
-        </div>
+        <h2 id="displayname" style="text-align: center;"></h2>
+        <h2 id ="matched" style="text-align: center;"></h2>
+    <div class="login-box">       
+        <div id="matchData"></div>
         
     </div>
-    <a href="dating.html" class="signin-btn1">Wanna try again</a>
+    <div class="buttonss">
+    <a href="dating.html" class="signin-btn1" style="text-align: center;">Wanna try again</a>
+    </div>
+    </div>
+    
     <script>
         // Get the username from the URL parameter and set it as the text content of the <h2> element
             document.addEventListener("DOMContentLoaded", function() {
@@ -107,13 +29,13 @@
         var rollno=localStorage.getItem("rollno");
         var score = localStorage.getItem("score");
         var ele="";
-        if (score>3){
+        if (score>=0.7){
             ele="You are an ideal match for each other";
         }
-        else if (score==2 || score==3){
+        else if (score<0.7 && score>=0.5){
             ele="You are a optimal match for each other";
         }
-        else if (score==1){
+        else if (score<0.5 && score>=0.3){
             ele="You are a decent match for each other";
         }
         else{
@@ -125,6 +47,7 @@
         // console.log("hi")
                 document.getElementById("matched").innerText = "Sorry we couldn't find an appropriate match";
             }
+
     else{
         document.getElementById("matched").innerText = "Congratulations !!! We have found a match for you. Here are the details....... ";
         fetch('students.json')
@@ -138,6 +61,7 @@
             // Create profile element
             const profile = document.createElement('div');
             profile.classList.add('student-profile');
+            conteent="I am your perfect match according to Matchify.I found your profile interesting and want to meet you. Thanks"
             if (student['IITB Roll Number']==rollno){
 
             // Create profile content
@@ -149,19 +73,26 @@
                     <p><strong>Year of Study:</strong> ${student['Year of Study']}</p>
                     <p><strong>Age:</strong> ${student.Age}</p>
                     <p><strong>Gender:</strong> ${student.Gender}</p>
-                    <p><strong>Interests:</strong> ${student.Interests.join(', ')}</p>
-                    <p><strong>Hobbies:</strong> ${student.Hobbies.join(', ')}</p>
-                    <p><strong>Email:</strong> <a href="mailto:${student.Email}">${student.Email}</a></p>
+                    <p><strong>Interests:</strong> ${Array.isArray(student.Interests) ? (student.Interests.length > 0 ? student.Interests.join(', ') : student.Interests) : student.Interests}</p>
+                    <p><strong>Hobbies:</strong> ${Array.isArray(student.Hobbies) ? (student.Hobbies.length > 0 ? student.Hobbies.join(', ') : student.Hobbies) : student.Hobbies}</p>
+                    <p><strong>Email:</strong> <a href="mailto:${student.Email}" class="mail-people">${student.Email}</a></p>
+                    <p><strong>Comments:</strong> <span >${student.Comments || "None"}</span></p>
+                    <p><strong>Likes recieved:</strong> <span id="like-count-${student['IITB Roll Number']}">${student.likeCount || 0}</span></p>
                     <p><strong>Match Status:</strong> ${ele}</p>
+                    <button type="button" class="signin-btn1" onclick="window.open('mailto:${student.Email}?subject=${username} your perfect match&body=Hello there !! Myself ${username} ${conteent} ');">Talk to your right match now!</button>
 
                 </div>
             `;
+                function newfunc(){
+                    window.open('mailto:test@example.com?subject=subject&body=body');
+                }
 
             // Set profile content
             profile.innerHTML = content;
 
             // Append profile to container
             container.appendChild(profile);
+
     }});
     })
     .catch(error => console.error('Error fetching JSON:', error));
@@ -170,4 +101,5 @@
 
     </script>
     </div>
+
 </body>

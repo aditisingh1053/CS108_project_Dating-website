@@ -40,5 +40,53 @@
     "password": "aryaaaa",
     "secret_question": "what is your favourite food?",
     "secret_answer": "Paneer"
+  },
+  {
+    "username": "kforkavya",
+    "password": "kforkavya",
+    "secret_question": "Are you Anon Mouse on Piazza ?",
+    "secret_answer": "Yes"
+  },
+  {
+    "username": "Aakash Gupta",
+    "password": "asdfgh",
+    "secret_question": "who is my roommate?",
+    "secret_answer": "turtle"
+  },
+  {
+    "username": "jigyasa",
+    "password": "whoknows",
+    "secret_question": "who is my roommate?",
+    "secret_answer": "gowri"
+  },
+  {
+    "username": "sanchita",
+    "password": "sanchita",
+    "secret_question": "sanchita",
+    "secret_answer": "sanchita"
+  },
+  {
+    "username": "Abhilasha",
+    "password": "WHyHell1207",
+    "secret_question": "Why am I single ?",
+    "secret_answer": "Yes"
+  },
+  {
+    "username": "Ram",
+    "password": "hi",
+    "secret_question": "who troubles me the most",
+    "secret_answer": "abhilasha"
+  },
+  {
+    "username": "Rizzi Kalra",
+    "password": "1234",
+    "secret_question": "name?",
+    "secret_answer": "Rishi Kalra"
+  },
+  {
+    "username": "suman",
+    "password": "suman",
+    "secret_question": "what is your favourite food?",
+    "secret_answer": "Dal-chawal"
   }
 ]
