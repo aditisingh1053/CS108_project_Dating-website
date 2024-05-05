@@ -278,26 +278,5 @@
       "Photography"
     ],
     "Comments": "I am not single"
-  },
-  {
-    "IITB Roll Number": "23B00056",
-    "Name": "Suman Singh",
-    "Year of Study": "1st",
-    "Age": 56,
-    "Gender": "Female",
-    "Email": "23b1053@iitb.ac.in",
-    "Interests": [
-      "Music",
-      "Literature"
-    ],
-    "Hobbies": [
-      "Reading",
-      "Cooking",
-      "Gardening",
-      "Painting"
-    ],
-    "Comments": "jay shree krishna",
-    "Photo": "photos/photo-1714494091221.jpg",
-    "likeCount": 36
   }
 ]
