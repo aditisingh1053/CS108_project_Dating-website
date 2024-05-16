@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Best Match</title>
+    <link rel="stylesheet" href="newstylesheet.css">
+    <link rel="icon" href="allphotos/logo.png" type="image/x-icon"></link>
+</head>
+<body>
+    <div class="allcontent">
+        <h2 id="displayname" style="text-align: center;"></h2>
+        <h2 id ="matched" style="text-align: center;"></h2>
+    <div class="login-box">       
+        <div id="matchData"></div>
+        
+    </div>
+    <div class="buttonss">
+    <a href="dating.html" class="signin-btn1" style="text-align: center;">Wanna try again</a>
+    </div>
+    </div>
+    
+    <script>
+        // Get the username from the URL parameter and set it as the text content of the <h2> element
+            document.addEventListener("DOMContentLoaded", function() {
+    // Retrieve username from localStorage
+        var username = localStorage.getItem("username");
+        if(username) {
+            document.getElementById("displayname").innerText = "Greetings, " + username;
+        }
+        var rollno=localStorage.getItem("rollno");
+        var score = localStorage.getItem("score");
+        var ele="";
+        if (score>=0.7){
+            ele="You are an ideal match for each other";
+        }
+        else if (score<0.7 && score>=0.5){
+            ele="You are a optimal match for each other";
+        }
+        else if (score<0.5 && score>=0.3){
+            ele="You are a decent match for each other";
+        }
+        else{
+            ele="You are an average match";
+        }
+        console.log(score)
+        console.log(rollno)
+        if (rollno === "nomatch") {
+        // console.log("hi")
+                document.getElementById("matched").innerText = "Sorry we couldn't find an appropriate match";
+            }
+
+    else{
+        document.getElementById("matched").innerText = "Congratulations !!! We have found a match for you. Here are the details....... ";
+        fetch('students.json')
+    .then(response => response.json())
+    .then(data => {
+        // Get container element
+        const container = document.getElementById('matchData');
+
+        // Loop through each student
+        data.forEach(student => {
+            // Create profile element
+            const profile = document.createElement('div');
+            profile.classList.add('student-profile');
+            conteent="I am your perfect match according to Matchify.I found your profile interesting and want to meet you. Thanks"
+            if (student['IITB Roll Number']==rollno){
+
+            // Create profile content
+            const content = `
+                <img src="${student.Photo}" alt="${student.Name}" class="profile-image">
+                <div class="profile-details">
+                    <h2>${student.Name}</h2>
+                    <p><strong>Roll Number:</strong> ${student['IITB Roll Number']}</p>
+                    <p><strong>Year of Study:</strong> ${student['Year of Study']}</p>
+                    <p><strong>Age:</strong> ${student.Age}</p>
+                    <p><strong>Gender:</strong> ${student.Gender}</p>
+                    <p><strong>Interests:</strong> ${Array.isArray(student.Interests) ? (student.Interests.length > 0 ? student.Interests.join(', ') : student.Interests) : student.Interests}</p>
+                    <p><strong>Hobbies:</strong> ${Array.isArray(student.Hobbies) ? (student.Hobbies.length > 0 ? student.Hobbies.join(', ') : student.Hobbies) : student.Hobbies}</p>
+                    <p><strong>Email:</strong> <a href="mailto:${student.Email}" class="mail-people">${student.Email}</a></p>
+                    <p><strong>Comments:</strong> <span >${student.Comments || "None"}</span></p>
+                    <p><strong>Likes recieved:</strong> <span id="like-count-${student['IITB Roll Number']}">${student.likeCount || 0}</span></p>
+                    <p><strong>Match Status:</strong> ${ele}</p>
+                    <button type="button" class="signin-btn1" onclick="window.open('mailto:${student.Email}?subject=${username} your perfect match&body=Hello there !! Myself ${username} ${conteent} ');">Talk to your right match now!</button>
+
+                </div>
+            `;
+                function newfunc(){
+                    window.open('mailto:test@example.com?subject=subject&body=body');
+                }
+
+            // Set profile content
+            profile.innerHTML = content;
+
+            // Append profile to container
+            container.appendChild(profile);
+
+    }});
+    })
+    .catch(error => console.error('Error fetching JSON:', error));
+    }
+});
+
+    </script>
+    </div>
+
+</body>

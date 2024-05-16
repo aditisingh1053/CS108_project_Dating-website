@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Forgot Password </title>
+        <link rel="icon" href="allphotos/logo.png" type="image/x-icon"></link>
+        <style> 
+       body{
+  color: rgb(235,235,255 );
+  /* min-height: 110vh; */
+  background-image: url('allphotos/w6.jpg');
+  animation: slideshow 20s infinite;
+  background-size: 100%;
+  
+  /* Prevent the image from repeating */
+  background-repeat: no-repeat;
+  font-size: large;
+  font-family:cursive;
+  }
+  @keyframes slideshow{
+      33% { background-image: url('allphotos/w1.avif');}
+      66% {background-image: url('allphotos/w7.webp');}
+  }
+  .login-box {
+    width: 350px;
+    margin: 50px auto;
+    color: rgb(255,255,255);
+    background-color: rgb(30,30,30) ;
+    /* box-shadow: 5px 10px 10px rgba(180, 220, 255, 0.7); */
+    padding: 20px;
+    /* border: 2px solid rgb(180,220,255 ) ;  */
+    /* animation: slideUp 1s ease forwards; */
+    border-radius: 10px;
+    text-align: center;
+    margin-left: 7%;
+    opacity: 0.85;
+    /* text-align: left; */
+  }
+        .allcontent{
+          animation: slideUp 2s ease forwards;
+        }
+      
+        @keyframes slideUp {
+    0% {
+        transform: translate(0%, 100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0%, 0);
+        opacity: 1;
+    }
+}
+.signin-btn1 {
+    background-color:  black ;
+    color: white;
+    opacity: 0.9;
+    padding: 10px 20px;
+    opacity: 0.5;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease; /* Transition Effect */
+  }
+  
+  .signin-btn1:hover {
+    background-color:  rgb(50,50,50);
+  }
+  button {
+    background-color: rgb(83, 43, 20);
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color:  rgb(123,73,53 );
+  }
+        .login-box h2 {
+            text-align: center;
+            color: white; /* Revert h2 color to yellow */
+          }
+
+        /* Style for input fields */
+        input[type="text"] {
+          width: 70%;
+          padding: 10px;
+          margin: 10px 0;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          box-sizing: border-box;
+        }
+
+        /* Style for labels */
+        label {
+          display: block;
+          margin-bottom: 5px;
+        }
+
+        /* Style for error messages */
+        .error-message {
+          color: red;
+          margin-top: 5px;
+        }
+
+        /* Add margin to the buttons for spacing */
+        button {
+          margin-top: 10px;
+        }
+
+        /* Animation for the login box */
+        @keyframes animatedBackground {
+          0% { background-position: 0 0; }
+          100% { background-position: 100% 100%; }
+        }
+        
+        </style>
+    </head>
+    <body>
+      <div class="allcontent">
+        <h1 style="margin-left: 9%;">FORGOT Password!!!</h1>
+        <h1 style="margin-left: 13%;">No worries !!</h1>
+        <h1 style="margin-left: 5%;"> We have ways to recover it </h1>
+        <div class="login-box">
+            <h2>Forgot password</h2>
+            <form id="forgotForm">              
+              <div id="usernameStep">
+                <div class="input-group1">
+                  <label for="username" style="font-size: large;"> Username:</label>
+                  <input type="text" id="username" name="username" required>
+                </div>
+                <button type="button" onclick="fetchCustomQuestion()">Next</button>
+              </div>
+              <div id="questionStep" style="display: none;">
+                <div class="input-group1">
+                  <label for="question" style="font-size: large;">Secret Question:</label>
+                  <span id="customQuestion" style="font-size: large;"></span>
+                </div>
+                <div class="input-group1">
+                  <label for="answer" style="font-size: large;">Answer:</label>
+                  <input type="text" id="answer" name="answer" required>
+                </div>
+                <button type="button" onclick="submitAnswer()">Submit</button>
+              </div>
+              </form>
+          </div>
+          <a href="login.html" class="signin-btn1" style="margin-left: 15%;">Back to Login</a>
+          <script>
+            var userData;
+            function fetchCustomQuestion() {
+              var username = document.getElementById("username").value;
+
+        
+              fetch('login.json')
+                .then(response => response.json())
+                .then(data => {
+                  userData = data.find(entry => entry.username === username);
+                  if (userData && userData.secret_question) {
+                    document.getElementById("questionStep").style.display = "block";
+                    document.getElementById("customQuestion").textContent = userData.secret_question;
+                  } else {
+                    alert("User not found or custom question not available.");
+                  }
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        
+            function submitAnswer() {
+              var answer = document.getElementById("answer").value;
+              console.log(answer);
+        
+              if (userData && userData.secret_answer === answer) {
+                alert("Answer is correct! Your password is: " + userData.password);
+                window.location.href='login.html';
+              } else {
+                alert("Incorrect answer or user not found.");
+              }
+            }
+          </script>
+          </div>
+    </body>
+</html>

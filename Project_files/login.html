@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="styling.css">
+    <link rel="icon" href="allphotos/logo.png" type="image/x-icon"></link>
+</head>
+<body>
+    <div class="allcontent">
+        <div class="outlined-text">
+    <h1 style="margin-left: 16%;">Hola!!</h1>
+    <h1 style="margin-left: 6%;">Sign in to find your love</h1>
+        </div>
+    <div class="login-box">
+        <h2>Login</h2>
+        <form id="loginForm"> <!-- Replace login.php with your backend script -->
+            <div class="input-group">
+                <label for="username" style="font-size: large;">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password" style="font-size: large;">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="button" class="login-btn" style="font-size: medium;" onclick="validateLogin()">Login</button>
+        </form>
+        <div class="links-container">
+            <div class="forgot-password">
+                <a class="fooorgot" href="forgot.html" style="font-size: large;">Forgot Password?</a>
+            </div>
+            <div class="register">
+                <a class="reeegister" href="register.html" style="font-size: large;">New User !! Register here</a>
+            </div>
+        </div>
+        
+    </div>
+    <a href="welcome.html" class="signin-btn1">Back to Home screen</a>
+
+    <script>
+        function validateLogin() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Fetch login data from login.json
+            fetch('login.json')
+                .then(response => response.json())
+                .then(data => {
+                    // Find user entry based on username
+                    var user = data.find(entry => entry.username === username);
+
+                    if (user && user.password === password) {
+                        // Redirect to abcd.html if username and password are correct
+                        localStorage.setItem("user", username);
+
+                        window.location.href = "user.html";
+                    } else {
+                        // Display appropriate error message
+                        alert("Incorrect username or password.");
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+    </div>
+</body>
+</html>
